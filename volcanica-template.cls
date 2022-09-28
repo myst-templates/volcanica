@@ -1,7 +1,7 @@
 % Official Volcanica article LaTeX template
 %------------------------------------------------------------
-%  Identification 
-%------------------------------------------------------------	
+%  Identification
+%------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{volcanica-template}[17-09-2022 Volcanica paper]
 
@@ -11,8 +11,8 @@
 \newcommand{\FirstPage}{1}
 
 %------------------------------------------------------------
-%  Additional packages, not defined elsewhere 
-%------------------------------------------------------------	
+%  Additional packages, not defined elsewhere
+%------------------------------------------------------------
 \RequirePackage[%
     separate-uncertainty=true,
     multi-part-units=single,
@@ -35,7 +35,7 @@
 
 %------------------------------------------------------------
 %  Define some ifs, for use in author template
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \newif\ifdraft
 \newif\ifnumlines
 \RequirePackage[switch, modulo]{lineno}
@@ -46,7 +46,7 @@
 \linenumbers
 %------------------------------------------------------------
 %  Font declarations
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc} 					% Font encoding
 \RequirePackage[light]{antpolt} 					% Antykwa Półtawskiegosrif font
@@ -58,7 +58,7 @@
 
 %------------------------------------------------------------
 %  New characters
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \DeclareRobustCommand{\okina}{%
   \raisebox{\dimexpr\fontcharht\font`f-\height}{%
     \scalebox{0.8}{`}%
@@ -67,15 +67,15 @@
 
 %------------------------------------------------------------
 %  Page set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage[tmargin=1in,
                             bmargin=1in,
                             lmargin=0.7in,
-                            rmargin=0.7in]{geometry} 
+                            rmargin=0.7in]{geometry}
 \setlength {\marginparwidth }{2cm}
 %------------------------------------------------------------
 %  Title and section set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{titlesec}
 \titleformat*{\section}{\large \sc \sffamily}
 \titlespacing*{\section}{0pt}{2ex}{1ex}
@@ -101,7 +101,7 @@
 
 %------------------------------------------------------------
 %  Abstract set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 % more commands defined below
 \RequirePackage{abstract}
 \renewcommand{\abstractnamefont}{\flushleft \normalfont \large \sc \sffamily}
@@ -110,7 +110,7 @@
 
 %------------------------------------------------------------
 %  Author set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage[noblocks]{authblk}
 \renewcommand*{\Affilfont}{\sffamily  \small}
 \renewcommand*{\Authfont}{\sffamily \large}
@@ -148,10 +148,11 @@
 
 %------------------------------------------------------------
 %  Affiliations set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{amsmath}
 \RequirePackage{xparse}
-\RequirePackage{fontawesome}
+% Comment out this package, causes the build to stall out if user doesn't have fontawesome
+% \RequirePackage{fontawesome}
 
 \ExplSyntaxOn
 \NewDocumentCommand{\lcgreek}{m}
@@ -176,12 +177,12 @@
 \newcommand{\software}[1]{\texttt{#1}}
 \let\sw\software
 \RequirePackage{xspace}
-\newcommand\la{$\langle$} 
-\newcommand\ra{$\rangle$\xspace} 
+\newcommand\la{$\langle$}
+\newcommand\ra{$\rangle$\xspace}
 
 %------------------------------------------------------------
 %  Hyperlink set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{xcolor}
 \definecolor{PUSblue}{HTML}{005FA8}
 \definecolor{commentgreen}{HTML}{008000}
@@ -193,10 +194,10 @@
 \definecolor{rufous}{rgb}{0.66, 0.11, 0.03}
 \definecolor{pyroclast}{HTML}{A40000}
 
-\RequirePackage{hyperref} 
+\RequirePackage{hyperref}
 \RequirePackage{xpatch}
-\hypersetup{colorlinks = true, 
-			citecolor = pyroclast, 
+\hypersetup{colorlinks = true,
+			citecolor = pyroclast,
 			linkcolor=pyroclast,
 			urlcolor  = pyroclast}
 
@@ -208,7 +209,7 @@
 			sorting=ynt,giveninits,uniquename=false,
 			uniquelist=false,maxbibnames=99,date=year,hyperref=true,
 			 sortcites=true,backref=false, abbreviate=false]{biblatex}
-			 
+
 \DeclareSourcemap{
   \maps[datatype=bibtex, overwrite]{
     \map{
@@ -225,7 +226,7 @@
 
 %------------------------------------------------------------
 %  Keyword set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{stringstrings} % \capitalize, \caselower
 \newcommand{\sentencecase}[1]{\caselower[e]{#1}\capitalize{\thestring}}
 
@@ -240,15 +241,15 @@
 
 %------------------------------------------------------------
 %  Define pages
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{lastpage}
 \newcommand{\Pages}{\textsc{\FirstPage--\pageref*{LastPage}}}
 
 %------------------------------------------------------------
 %  Define DOI
-%------------------------------------------------------------	
-\def\leadingZero#1{% 
-\ifnum#1<10 0\fi 
+%------------------------------------------------------------
+\def\leadingZero#1{%
+\ifnum#1<10 0\fi
 \number#1}
 
 \newcommand{\DOInum}{\leadingZero{\Volume}.\leadingZero{\Issue}.\FirstPage xxx}
@@ -257,7 +258,7 @@
 
 %------------------------------------------------------------
 %  Caption set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage[font=sf]{caption}
 \captionsetup[figure]{labelfont={},name={Figure},labelsep=colon}
 \captionsetup[table]{labelfont={},name={Table},labelsep=colon}
@@ -265,7 +266,7 @@
 
 %------------------------------------------------------------
 %  Header set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{graphicx}
 \setkeys{Gin}{draft=false}  % to get illustrations to print, even in draft mode
 
@@ -297,10 +298,10 @@
 
 %------------------------------------------------------------
 %  Citations set-up
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \ExecuteBibliographyOptions{url=false}
 \ExecuteBibliographyOptions{doi=true}
-\newbibmacro{string+doi}[1]{% 
+\newbibmacro{string+doi}[1]{%
  \iffieldundef{doi}{#1}{\href{https://doi.org/\thefield{doi}}{#1}}}
   \DeclareFieldFormat{title}{\usebibmacro{string+doi}{\mkbibemph{#1}}}
 \DeclareFieldFormat[article]{title}{\usebibmacro{string+doi}{\mkbibquote{#1}}}
@@ -352,7 +353,7 @@
      \printunit{\intitlepunct}}}
 %
 %------------------------------------------------------------
-%  Issue parentheses 
+%  Issue parentheses
 %------------------------------------------------------------
 % No dot before number of articles
 \xpatchbibmacro{volume+number+eid}{%
@@ -364,8 +365,8 @@
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
 
 %------------------------------------------------------------
-%  Define \Autoref 
-%------------------------------------------------------------	
+%  Define \Autoref
+%------------------------------------------------------------
 % allows multiple references to be passed to \autoref
 \makeatletter
 \newcommand\Autoref[1]{\@first@ref#1,@}
@@ -396,14 +397,14 @@
 
 %------------------------------------------------------------
 %  Define a macro \fullref
-%------------------------------------------------------------	
+%------------------------------------------------------------
 % Allows referencing section number and name
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1} \nameref*{#1}}}
 
 
 %------------------------------------------------------------
 %  Balancing columns
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \RequirePackage{balance}
 \RequirePackage{flushend} % [keeplastbox] avoids incorrect indenting at end of bibliography
 \makeatletter
@@ -420,7 +421,7 @@
 
 %------------------------------------------------------------
 %  Define \VOLCANICA logo text
-%------------------------------------------------------------	
+%------------------------------------------------------------
 \definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
 
 \makeatletter
@@ -437,24 +438,24 @@
 \makeatother
 
 %------------------------------------------------------------
-%  Some global parameters 
-%------------------------------------------------------------	
+%  Some global parameters
+%------------------------------------------------------------
 % Ensures that there will not be any widow or club lines,
 \widowpenalty10000
 \clubpenalty10000
 
 
 %------------------------------------------------------------
-%  Enabled during draft/ review stage 
-%------------------------------------------------------------	
+%  Enabled during draft/ review stage
+%------------------------------------------------------------
 \usepackage{draftwatermark}
 \SetWatermarkText{\texttt{draft for review}}
 \SetWatermarkScale{0.45}
 \SetWatermarkColor[gray]{0.90}
 
 %------------------------------------------------------------
-%  Front matter set-up 
-%------------------------------------------------------------	
+%  Front matter set-up
+%------------------------------------------------------------
 
 \makeatletter
 \def\IfEmptyTF#1{%
@@ -495,13 +496,13 @@
 \begin{center}{#3}\vspace{.25\baselineskip}
 \end{center}
  \end{@twocolumnfalse}
-] 
+]
 \saythanks
 }
 
 %------------------------------------------------------------
-%  End matter set-up 
-%------------------------------------------------------------	
+%  End matter set-up
+%------------------------------------------------------------
 \newcommand{\EndMatter}{
 \section*{Copyright notice}
 \CopyrightNotice
@@ -534,8 +535,8 @@
 
 
 %------------------------------------------------------------
-%  Table set-up 
-%------------------------------------------------------------	
+%  Table set-up
+%------------------------------------------------------------
 % might need to add additional packages for sideways environments, etc.
 \RequirePackage{threeparttable}
 \RequirePackage{booktabs}
@@ -545,8 +546,8 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
 %------------------------------------------------------------
-%  Greek set-up 
-%------------------------------------------------------------	
+%  Greek set-up
+%------------------------------------------------------------
 % Map upright greek characters from Fourier
 
 \DeclareFontEncoding{FML}{}{}
