@@ -1,0 +1,184 @@
+\newcommand{\secondLanguage}{icelandic} 			% if a second language is used, add it here
+\documentclass[draft, {\secondLanguage}, english]{volcanica-template} 
+\nonstopmode									% can toggle to see compilation warnings
+\newcommand{\ArticleType}{Research article}			
+% Please choose between Research article, Report, Review, or Methods. 
+% Details about different article types are available at: 
+% https://www.jvolcanica.org/ojs/index.php/volcanica/about/submissions
+
+%------------------------------------------------------------
+%  Article details go here 
+%------------------------------------------------------------	
+\newcommand{\Title}{This is a really good title} 	% Manuscript title goes here.
+\newcommand{\shortTitle}{Short-title} 		        % Short title for header goes here, less than 60 characters.
+\newcommand{\Author}{YourName et al.\xspace}    	% First author goes here.
+
+%------------------------------------------------------------
+%  Author details go here 
+%------------------------------------------------------------	
+\author[{{\affiliation{1}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Person A. G. Persondóttir	 				% first author
+\Email{email@address.io}} 		        	% corresponding author email
+\author[{{\affiliation{2}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Someone Else} 					        	% second author
+\author[{{\affiliation{3}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Another S. Cientist}						% third author
+
+%------------------------------------------------------------
+%  Affiliations 		
+%------------------------------------------------------------	
+\affil[{{\affiliation{1}}}]{					% affiliation #1
+The first affiliation.
+}
+\affil[{{\affiliation{2}}}]{					% affiliation #2
+A second affiliation; note how it ends in a full stop.
+}
+\affil[{{\affiliation{3}}}]{					% affiliation #3
+Somewhere else.}
+
+%------------------------------------------------------------
+%  BIBLIOGRAPHY FILE 		
+%------------------------------------------------------------	  
+\addbibresource{bib-file.bib}		  		% add the name of the bibliography file here
+
+%------------------------------------------------------------
+%  Start of Document 		
+%------------------------------------------------------------	  
+\begin{document}
+
+%------------------------------------------------------------
+%  Abstract(s) and Keywords
+%------------------------------------------------------------	
+% Replace dummy text (\protect{\lipsum[45]}) with the abstract in the first argument for \FrontMatter (between the curly braces {}). 
+% If there is a second-language abstract, it goes between the square brackets []. 
+% Make sure you have included the correct language in line 1, above.
+% If no second abstract, ensure there is no space between the square brackets [].
+\FrontMatter{\protect{\lipsum[45]}}
+[]% 
+{					
+\keywords{This}{Is}{Where}{The}{Keywords}{Go}	% add up to six keywords in curly braces {}
+}
+
+%------------------------------------------------------------
+%  Maintext
+%------------------------------------------------------------	
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}		% Sections labelled and linked
+
+Welcome to the \VOLCANICA research article \latex template. If you are already comfortable using \latex and \bibtex, you can go ahead and use the blank template (blank-template.tex). (If you're editing on Overleaf, you might want to change the "Main document" in Menu > Settings. You can also right-click to rename "blank-template" to something more relevant)
+
+Otherwise, this template contains a bit more information to help you get started using \latex as a word processing software. Any issues or questions, email editor@jvolcanica.org.
+
+Volcanica uses three levels of headings, which can be defined using "section", "subsection", and "subsubsection" commands.
+
+\section{A section}\label{sec:02}
+This is the top level ("section"). Typically we recommend an Introduction > Methods > Results > Discussion > Conclusions structure, but feel free to be flexible here.
+
+\subsection{A subsection}\label{sec:02a}
+This is another level ("subsection").
+
+\subsubsection{A third level}\label{sec:02aa}
+This is a third-level section ("sub-subsection"). Notice that the sections have been given a label: this means we can refer to them later, using "autoref", e.g. \autoref{sec:02} or \autoref{sec:02a}. The autoref command can also be used to refer to figures, tables, and other items. Here's an example of how to include a single-column-width figure:
+
+%------------------------------------------------------------
+%  Single column figure
+%------------------------------------------------------------	
+\begin{figure}[!b]								%[tbhp]
+\centering
+\includegraphics[width=\columnwidth]{example-image} % inside { } should be the path to the image file
+\caption{This is where a descriptive caption goes. A good idea is to include all your figures in a specific folder (e.g. "media") within the Overleaf project (or the same directory as the .tex file, if you are editing offline). The path to the figures then looks like "media/figure-1.pdf". PDF, SVG, or other vector graphics are preferred formats, but high-resolution image formats (e.g. PNG or JPG) are also acceptable.}		% Include the figure caption here
+\label{fig:01}			% Include a unique label here, so you can refer to the figure
+\end{figure}
+%------------------------------------------------------------	
+
+Figure references look like this: \autoref{fig:01}. Sometimes you might want to include a wider figure; the command for this looks slightly different:
+%------------------------------------------------------------
+%  Double column figure
+%------------------------------------------------------------	
+\begin{figure*}[!t]								%[tbhp]
+\centering
+\includegraphics[width=\textwidth]{example-image-a} % inside { } should be the path to the image file
+\caption{This is where a descriptive caption goes.}	% Include the figure caption here
+\label{fig:02}									% Include a unique label here, so you can refer to the figure
+\end{figure*}
+%------------------------------------------------------------	
+
+If you want to use mathematical symbols and short in-line equations, just wrap them in dollar signs: $mx +c$. Larger equations go in their own kind of special environment called, unsurprisingly, equation.
+%------------------------------------------------------------
+%  Equation
+%------------------------------------------------------------	
+\begin{equation}
+S(\omega) = \frac{\alpha g^2}{\omega^5} \exp\Bigl[ -0.74\Bigl\{\frac{\omega U_\omega 19.5}{g}\Bigr\}^{\!-4}\,\Bigr] 
+\label{eq:01}\end{equation}
+%------------------------------------------------------------	
+These can also be labelled and referred to (see \autoref{eq:01} above). Subequations can also be typeset, as shown in \autoref{eq:02} below.
+
+%------------------------------------------------------------
+%  Sub-equations
+%------------------------------------------------------------	
+\begin{subequations}
+\begin{align}
+v_x &= v_0 \cos(\theta)\exp\bigg(-\frac{g}{v_t}t\bigg) \label{eq:2a}\\[0.5ex]
+v_y &=v_0\sin(\theta)\exp\bigg(-\frac{g}{v_t}t\bigg)-v_t\bigg[1-\exp\bigg(-\frac{g}{v_t}t\bigg)\bigg]. \label{eq:2b}\end{align}
+\label{eq:02}
+\end{subequations}
+%------------------------------------------------------------
+
+\section{Tables}
+
+Here is a simple table.
+
+%------------------------------------------------------------
+  %SIMPLE TABLE
+%------------------------------------------------------------	
+\begin{table}[!thbp]
+\centering
+\caption{Caption goes up here.}
+\begin{tabular}{
+S[table-format=3.1]								% S-type column aligns decimals
+S[table-format=3.3]								% x.y = #digits before and after decimal
+S[table-format=2.2]
+}
+\toprule										% toprule
+{Parameter 1} & {Parameter 2} & {Parameter 3} \\	% text in an S-type column must be enclosed in { }
+\midrule										% midrule
+3.8 	& 0.003	& 15.91	\\
+1.4 	& 0.001	& 12.12	\\
+21 	& 0.018	& 81.43	\\
+0.8 	& 0.004	& 1.8		\\ [5pt]					% additional space every four lines
+4.0 	& 0.004	& 14.76	\\
+2.1 	& 0.003	& 13.31	\\
+3.7 	& 0.006	& 16.48	\\
+119 	& 0.02	& 83.01	\\ [5pt]
+3.0 	& 0.001	& 15.2	\\
+2.9 	& 0.002	& 11.01	\\
+
+\bottomrule									% bottomrule
+\end{tabular}
+\label{tab:01}
+\end{table}
+%------------------------------------------------------------
+
+Tables can become quite complex. A great resource is \url{https://www.tablesgenerator.com/latex_tables}, where you can paste table data, or load in an excel file, then copy the LaTeX output. Note that for two-column tables, the "table*" environment should be used, rather than the unstarred "table" environment.
+
+\section{Citations}
+To cite other articles, you need a .bib file. This is a separate file (in the same folder as the .tex and .cls files) which contains all the necessary bibliographic information. Two good resources compiling a .bib file are \url{https://www.doi2bib.org/} and \url{https://scipython.com/apps/doi2bib/}. Both of these allow you to enter an article's DOI number and retrieve the bibtex entry (which you can copy/paste into the .bib file). Bibtex entries can also be obtained via Google Scholar, by clicking "cite" > "bibtex". However, GS \emph{doesn't} include DOI numbers, so you may want to add these manually. Many reference managers (e.g. Zotero) allow authors to export a .bib file. Once you have a .bib file, citations are simple, both in-line, such as \textcite{Farquharson2018}, or in parentheses \parencite{Kavanagh2022}. The reference list will be formatted and printed automatically. Note that you can refer to multiple citations at once \parencite[e.g.][among others]{Kavanagh2022, Siebert2015}.
+
+\section{Useful commands}
+
+If you are using a lot of isotopes or isotopic ratios, you can use the commands "iso" and "isorat", which give outputs like \iso{C}{14} and \isorat{O}{18}{16}. Chemistry can be typeset using the "ch" command, giving output like \ch{H2SO4} or \ch{[AgCl2]-}, or even \ch{KCr(SO4)2 * 12 H2O}. There is also an "okina" command, as in Hawai{\okina}i. Here are some Greek letters: $\alpha$, $\beta$, $\phi$, $\Omega$. If we use software, like \software{Eject!}, it will look like this, using the command "software" or its alias "sw". Same goes for \sw{DensityX}, \sw{ImageJ}, and \sw{VolCalc}. SI units can be typeset using the "SI" command (SI{value}{unit}), where  unit is typed out: \SI{2600}{\kilo\gram\per\meter\cubed}. If there are symbols or commands you'd like to see incorporated in our templates, please reach out to farquharson@jvolcanica.org.
+
+\Contributions{Who did what?% Author Contribution statement
+}
+%
+\Acknowledgments{Any pertinent acknowledgements. Where applicable, funding sources should be provided here.% Acknowledgements statement.
+}
+%
+\DataAvailability{Links to data repositories, and/or a statement regarding the availability of data here. Authors are encouraged to make data freely available wherever possible: we recommend free repositories such as Zenodo and FigShare in order to facilitate transparent open access. We recommend  versioning, archiving, and sharing code via GitHub/Zenodo; see: https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content.% Data Availability statement
+}
+%
+\EndMatter
+\end{document}

@@ -1,0 +1,81 @@
+\newcommand{\secondLanguage}{icelandic} 			% if a second language is used, add it here
+\documentclass[draft, {\secondLanguage}, english]{volcanica-template} 
+\nonstopmode									% can toggle to see compilation warnings
+\newcommand{\ArticleType}{Research article}			
+% Please choose between Research article, Report, Review, or Methods. 
+% Details about different article types are available at: 
+% https://www.jvolcanica.org/ojs/index.php/volcanica/about/submissions
+%------------------------------------------------------------
+%  Article details go here 
+%------------------------------------------------------------	
+\newcommand{\Title}{Title} 	                    % Manuscript title goes here.
+\newcommand{\shortTitle}{} 	            	% Short title for header goes here, less than 60 characters.
+\newcommand{\Author}{Author et al.\xspace} 	% First author goes here.
+%------------------------------------------------------------
+%  Author details go here 
+%------------------------------------------------------------	
+\author[{{\affiliation{1}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Person A. G. Persondóttir	 				% first author
+\Email{email@address.io}}	 		    	% corresponding author email
+\author[{{\affiliation{2}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Someone Else}						    	% second author
+\author[{{\affiliation{3}}}] 				% affiliation number
+{\orcidaffil{0000.0000.0000.0000}~			% orcid number
+Another S. Cientist}						% third author
+
+%------------------------------------------------------------
+%  Affiliations 		
+%------------------------------------------------------------	
+\affil[{{\affiliation{1}}}]{					% affiliation #1
+The first affiliation.
+}
+\affil[{{\affiliation{2}}}]{					% affiliation #2
+A second affiliation; note how it ends in a full stop.
+}
+\affil[{{\affiliation{3}}}]{					% affiliation #3
+Somewhere else.}
+%------------------------------------------------------------	
+
+%------------------------------------------------------------
+%  BIBLIOGRAPHY FILE 		
+%------------------------------------------------------------	  
+\addbibresource{bib-file.bib}		  		% add the name of the bibliography file here
+%------------------------------------------------------------	  
+
+%------------------------------------------------------------
+%  Start of Document 		
+%------------------------------------------------------------	  
+\begin{document}
+
+%------------------------------------------------------------
+%  Abstract(s) and Keywords
+%------------------------------------------------------------	
+% Replace dummy text (\protect{\lipsum[45]}) with the abstract in the first argument for \FrontMatter. 
+% If there is a second-language abstract, it goes between the square brackets []. 
+% Make sure you have included the correct language in line 1, above.
+% If no second abstract, ensure there is no space between the square brackets [].
+\FrontMatter{\protect{\lipsum[45]}}
+[] % 
+{					
+\keywords{This}{Is}{Where}{The}{Keywords}{Go}	% add up to six keywords in curly braces {}
+}
+
+%------------------------------------------------------------
+%  Maintext
+%------------------------------------------------------------	
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}		% Sections labelled and linked
+
+\Contributions{% Author Contribution statement
+}
+%
+\Acknowledgments{% Acknowledgements statement.
+}
+%
+\DataAvailability{% Data Availability statement
+}
+%
+\EndMatter
+\end{document}

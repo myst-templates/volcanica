@@ -1,0 +1,106 @@
+jtex: v1
+title: Volcanica
+description: A template for submissions to the Volcanica journal
+version: 1.0.0
+authors:
+  - name: Volcanica
+    website: https://jvolcanica.org
+    affiliations:
+      - Volcanica Journal
+tags:
+  - paper
+  - journal
+  - two-column
+  - geoscience
+  - earthscience
+source: http://www.jvolcanica.org/ojs/index.php/volcanica/about/submissions
+thumbnail: thumbnail.png
+parts:
+  - id: abstract
+    required: true
+    description: |
+      No description
+  - id: acknowledgments
+    required: false
+    description: |
+      No description
+  - id: author_contributions
+    required: false
+    description: |
+      No description
+  - id: data_availability
+    required: false
+    description: >
+      Links to data repositories, and/or a statement regarding the availability
+      of data here. Authors are encouraged to make data freely available
+      wherever possible: we recommend free repositories such as Zenodo and
+      FigShare in order to facilitate transparent open access. We recommend
+      versioning, archiving, and sharing code via GitHub/Zenodo; see:
+      https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content.
+doc:
+  - id: title
+    required: true
+  - id: authors
+    required: true
+  - id: short_title
+    required: true
+  - id: keywords
+    description: Add up to six keywords
+  - id: bibliography
+options:
+  - id: article_type
+    type: choice
+    choices:
+      - Research article
+      - Report
+      - Review
+      - Methods
+    default: Research article
+    description: >
+      Details about different article types are available at:
+      https://www.jvolcanica.org/ojs/index.php/volcanica/about/submissions
+files:
+  - template.tex
+  - volcanica-template.cls
+packages:
+  - GoMono
+  - abstract
+  - amsmath
+  - antpolt
+  - authblk
+  - babel
+  - balance
+  - booktabs
+  - caption
+  - changes
+  - chemformula
+  - csquotes
+  - doi
+  - draftwatermark
+  - enumitem
+  - fancyhdr
+  - flushend
+  - fontawesome
+  - fontenc
+  - footmisc
+  - graphicx
+  - hologo
+  - hyperref
+  - inputenc
+  - lastpage
+  - lineno
+  - lipsum
+  - multirow
+  - newtxmath
+  - roboto
+  - scalerel
+  - stringstrings
+  - tabularx
+  - threeparttable
+  - tikz
+  - titlesec
+  - url
+  - xcolor
+  - xparse
+  - xpatch
+  - xspace
