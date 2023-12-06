@@ -49,6 +49,7 @@ doc:
   - id: keywords
     description: Add up to six keywords
   - id: bibliography
+  - id: affiliations
 options:
   - id: article_type
     type: choice
