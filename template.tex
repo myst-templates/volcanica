@@ -66,7 +66,11 @@
 \FrontMatter{[-parts.abstract-]}
 []%
 {
+[# if doc.keywords #]
 \keywords{[-doc.keywords|join("}{")-]}	% add up to six keywords in curly braces {}
+[# else #]
+\keywords{}
+[# endif #]
 }
 
 %------------------------------------------------------------
